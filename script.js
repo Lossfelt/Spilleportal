@@ -1,33 +1,36 @@
-// Simple script for Levin's Spill portal
-console.log('🎮 Levin\'s Spill - Portal lastet!');
+﻿// Simple script for Levin's Spill portal
+console.log("Levin's Spill - portal lastet!");
 
 document.addEventListener('DOMContentLoaded', () => {
     const expandButtons = document.querySelectorAll('.expand-button');
 
     expandButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const details = button.parentElement.nextElementSibling;
-            details.classList.toggle('active');
+        const detailsId = button.getAttribute('aria-controls');
+        const details = detailsId ? document.getElementById(detailsId) : button.parentElement.nextElementSibling;
 
-            if (details.classList.contains('active')) {
-                button.textContent = '[ - ]';
-            } else {
-                button.textContent = '[ + ]';
-            }
+        if (!details) {
+            return;
+        }
+
+        button.addEventListener('click', () => {
+            const isOpen = details.classList.toggle('active');
+            button.textContent = isOpen ? '-' : '+';
+            button.setAttribute('aria-expanded', String(isOpen));
         });
     });
 
     // Add a simple easter egg
     let konami = [];
     const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+    const codeLength = konamiCode.length;
     
-    document.addEventListener('keydown', (e) => {
-        konami.push(e.key);
-        konami = konami.slice(-10);
+    document.addEventListener('keydown', (event) => {
+        konami.push(event.key);
+        konami = konami.slice(-codeLength);
         
         if (konami.join('') === konamiCode.join('')) {
             document.body.style.animation = 'rainbow 2s infinite';
-            console.log('🎉 Konami Code aktivert!');
+            console.log('Konami Code aktivert!');
         }
     });
 });
@@ -41,3 +44,4 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
