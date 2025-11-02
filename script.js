@@ -1,15 +1,19 @@
 // Simple script for Levin's Spill portal
 console.log('🎮 Levin\'s Spill - Portal lastet!');
 
-// Add click sound effect simulation (optional)
 document.addEventListener('DOMContentLoaded', () => {
-    const playButtons = document.querySelectorAll('.play-button');
-    
-    playButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            // You can add actual game URLs here
-            // e.preventDefault(); // Remove this if you have real URLs
-            console.log('Starter spill:', e.target.closest('.game-card').querySelector('.game-title').textContent);
+    const expandButtons = document.querySelectorAll('.expand-button');
+
+    expandButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const details = button.parentElement.nextElementSibling;
+            details.classList.toggle('active');
+
+            if (details.classList.contains('active')) {
+                button.textContent = '[ - ]';
+            } else {
+                button.textContent = '[ + ]';
+            }
         });
     });
 

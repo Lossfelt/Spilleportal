@@ -55,82 +55,80 @@ header {
     letter-spacing: 3px;
 }
 
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+.games-list {
+    border: 4px solid #00ff00;
     margin-bottom: 4rem;
 }
 
-.game-card {
-    background-color: #1a1a1a;
-    border: 4px solid #00ff00;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    image-rendering: pixelated;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+.games-list > div {
+    border-bottom: 4px solid #00ff00;
 }
 
-.game-card:hover {
-    transform: translateY(-5px);
-    border-color: #ff00ff;
-    box-shadow: 0 0 30px rgba(255, 0, 255, 0.4);
+.games-list > div:last-child {
+    border-bottom: none;
+}
+
+dt {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+}
+
+dt a {
+    color: #00ffff;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+dt a:hover {
+    text-decoration: underline;
+}
+
+.expand-button {
+    background: none;
+    border: 2px solid #00ff00;
+    color: #00ff00;
+    font-family: 'Press Start 2P', monospace;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.expand-button:hover {
+    background: #00ff00;
+    color: #000;
+}
+
+.game-details {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    display: none;
+    background-color: #111;
+}
+
+.game-details.active {
+    display: block;
 }
 
 .game-image {
     width: 100%;
-    height: 200px;
-    background-color: #000;
+    max-width: 400px;
+    margin: 0 auto 1rem auto;
     border: 2px solid #00ff00;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
 }
 
 .game-image img {
-    max-width: 100%;
-    max-height: 100%;
-    image-rendering: pixelated;
+    width: 100%;
     display: block;
-}
-
-.game-title {
-    font-size: 1rem;
-    color: #00ffff;
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
+    image-rendering: pixelated;
 }
 
 .game-description {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     color: #888;
-    margin-bottom: 1.5rem;
     line-height: 1.8;
-}
-
-.play-button {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background-color: #00ff00;
-    color: #000;
-    text-decoration: none;
-    font-size: 0.7rem;
-    border: 3px solid #00ff00;
-    transition: all 0.2s ease;
-    letter-spacing: 2px;
-}
-
-.play-button:hover {
-    background-color: #000;
-    color: #00ff00;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
-}
-
-.play-button:active {
-    transform: scale(0.95);
+    text-align: center;
 }
 
 footer {
