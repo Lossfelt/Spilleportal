@@ -141,6 +141,10 @@ footer {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
     .title {
         font-size: 1.3rem;
         text-shadow: 2px 2px 0 #ff00ff, 4px 4px 0 #00ffff;
@@ -149,13 +153,14 @@ footer {
     .subtitle {
         font-size: 0.6rem;
     }
-    
-    .games-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+
+    dt {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
     }
-    
-    .game-title {
+
+    .expand-button {
+        padding: 0.4rem;
         font-size: 0.8rem;
     }
 }
